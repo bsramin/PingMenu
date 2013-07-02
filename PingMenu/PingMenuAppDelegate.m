@@ -41,7 +41,7 @@
     self.pings = [[NSMutableDictionary alloc] init];
     [pings release];
     
-    self.pinger = [SimplePing simplePingWithHostName:@"google.com"];
+    self.pinger = [SimplePing simplePingWithHostName:@"8.8.8.8"];
     pinger.delegate = self;
     
     self.theItem = [bar statusItemWithLength:NSVariableStatusItemLength];
@@ -196,7 +196,7 @@
     lastDiff = diff;
     
     [slowPingTimer invalidate];
-    self.currentTitle = [NSString stringWithFormat:@"%1.3fs",diff];
+    self.currentTitle = [NSString stringWithFormat:@"%1.2f ms",diff*1000];
     [self updateMenuTitleWithColor:[NSColor blackColor]];
 
 //    NSLog(@"#%u received", seq);
